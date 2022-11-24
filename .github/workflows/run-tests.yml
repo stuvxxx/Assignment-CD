@@ -8,6 +8,7 @@ stages:
   - stage: TEST
     jobs:
     - job: TEST1
+      steps:
       run-tests:
         runs-on: ubuntu-20.04
         steps:
