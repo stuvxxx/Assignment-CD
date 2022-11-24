@@ -3,8 +3,13 @@ name: Test, Build and Deploy
 # Run this workflow whenever something new is pushed.
 on: push
 
+stages:
+  - test
+  - deploy
 
-jobs:
+
+job 1:
+  stage: test
   run-tests:
     runs-on: ubuntu-20.04
     steps:
@@ -19,6 +24,8 @@ jobs:
         run: pip install -r requirements.txt
       - name: Run tests
         run: pytest
+job 2:
+  stage: build
   build:
     runs-on: ubuntu-20.04
     steps:
