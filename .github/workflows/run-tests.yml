@@ -3,7 +3,7 @@ name: Run tests
 on: push
 
 stages: 
--state: QA
+-stage: QA
 jobs:
   run-tests: 
     runs-on: ubuntu-20.04
@@ -19,4 +19,3 @@ jobs:
         run: pip install -r requirements.txt
       - name: Run tests
         run: pytest
-        
