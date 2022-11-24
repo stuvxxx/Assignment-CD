@@ -1,11 +1,11 @@
+
+
 name: Run tests
-
 on: push
-
-
 jobs:
-  run-aap: 
+  run-tests: 
     runs-on: ubuntu-20.04
+    - stage: TEST
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
