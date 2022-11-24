@@ -21,7 +21,7 @@ jobs:
         run: pytest
   build-site:
     name: my_second_job
-    needs: my_first_job
+    needs: run-tests
     runs-on: ubuntu-20.04
     steps:
       - name: Run tests
