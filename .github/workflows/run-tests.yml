@@ -7,6 +7,7 @@ on: push
 jobs:
   run-tests: 
     runs-on: ubuntu-20.04
+    stage: test
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
