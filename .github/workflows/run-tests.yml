@@ -3,9 +3,8 @@ name: Run tests
 # Run this workflow whenever something new is pushed.
 on: push
 
-
 jobs:
-  run-tests: 
+  - job: run-tests
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout repository
