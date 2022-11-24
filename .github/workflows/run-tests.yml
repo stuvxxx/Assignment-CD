@@ -19,10 +19,5 @@ jobs:
         run: pip install -r requirements.txt
       - name: Run tests
         run: pytest
-  aap: 
-  dependsOn: run-tests
-    steps:
-      - name: AAP
-        run: echo blabla
 
     
