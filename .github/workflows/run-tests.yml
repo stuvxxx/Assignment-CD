@@ -3,33 +3,32 @@ name: Test, Build and Deploy
 # Run this workflow whenever something new is pushed.
 on: push
 
-stages:
-  - test
-  - deploy
 
+stages: 
+  - stage: TEST
+    jobs:
+    - job: TEST1
+      run-tests:
+        runs-on: ubuntu-20.04
+        steps:
+          - name: Checkout repository
+            uses: actions/checkout@v2
+          - name: Setup Python
+            uses: actions/setup-python@v2
+            # Specify some input for this particular action
+            with:
+              python-version: '3.8.6'
+          - name: Install Dependencies
+            run: pip install -r requirements.txt
+          - name: Run tests
+            run: pytest
 
-job 1:
-  stage: test
-  run-tests:
-    runs-on: ubuntu-20.04
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      - name: Setup Python
-        uses: actions/setup-python@v2
-        # Specify some input for this particular action
-        with:
-          python-version: '3.8.6'
-      - name: Install Dependencies
-        run: pip install -r requirements.txt
-      - name: Run tests
-        run: pytest
-job 2:
-  stage: build
-  build:
-    runs-on: ubuntu-20.04
-    steps:
-      - name: Checkout repository2
-        uses: actions/checkout@v2
-      - name: Run script!
-        run: echo Hello, Mothafokkah!
+  - stage: BUILD
+    jobs:
+    - job: BUILD2
+      runs-on: ubuntu-20.04
+      steps:
+        - name: Checkout repository2
+          uses: actions/checkout@v2
+        - name: Run script!
+          run: echo Hello, Mothafokkah!
