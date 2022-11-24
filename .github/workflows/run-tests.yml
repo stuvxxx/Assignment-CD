@@ -5,6 +5,7 @@ on: push
 stages: 
 - stage: BUILD
   jobs:
+    job: BUILD1
     run-tests:
       runs-on: ubuntu-20.04
       steps:
